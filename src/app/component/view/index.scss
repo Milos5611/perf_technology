@@ -1,0 +1,19 @@
+.MuiGrid-typeContainer-1 {
+    justify-content: center;
+    margin: 0 !important;
+    width: 100% !important;
+
+    .element {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        .image {
+            width: 25%
+        }
+
+        article {
+            padding: 0 20px;
+        }
+    }
+}

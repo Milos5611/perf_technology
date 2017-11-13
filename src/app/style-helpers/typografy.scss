@@ -1,0 +1,39 @@
+html * {
+    outline: 0 !important;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+// Fix autocomplete color
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+    background-color: $white !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px $white inset !important;
+    -webkit-text-fill-color: #555555 !important;
+}
+
+//links
+a {
+    color: #949ea8;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Paragraph
+p {
+    font-size: 16px;
+    line-height: 1.33;
+}

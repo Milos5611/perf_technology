@@ -1,0 +1,11 @@
+// Style helpers
+@import "style-helpers/variables";
+@import "style-helpers/path";
+@import "style-helpers/mixins";
+@import "style-helpers/typografy";
+// Finder Component
+@import "component/view/index";
+
+body {
+    background: url("/images/greyzz.png") 50% 0;;
+}

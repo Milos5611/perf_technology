@@ -1,0 +1,196 @@
+// Background color opacity
+@mixin background-opacity($color: #383836, $opacity: 0.85) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
+
+// Box rgba
+@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #383836) {
+  background-color: rgba($r, $g, $b, $opacity);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#{$color}', endColorstr = '#{$color}');
+  zoom: 1;
+}
+
+// Columns
+@mixin columns($count: 3, $gap: 10) {
+  @include css3-prefix('column-count', $count);
+  @include css3-prefix('column-gap', $gap);
+}
+
+// Double borders
+@mixin double-borders($colorOne: #383836, $colorTwo: #577a9b, $radius: 0) {
+  border: 1px solid $colorOne;
+
+  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo) {
+    @include border-radius($radius);
+  }
+}
+
+// Flex
+@mixin flex($value: 1) {
+  @include css3-prefix('box-flex', $value);
+}
+
+// Flip
+@mixin flip($scaleX: -1) {
+  @include css3-prefix('transform', scaleX($scaleX));
+  filter: 'FlipH';
+}
+
+// Outline radius
+@mixin outline-radius($radius: 5px) {
+  @include css3-prefix('outline-radius', $radius);
+}
+
+// Text shadow
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+  text-shadow: $x $y $blur $color;
+}
+
+/* Transform style */
+@mixin transform-style($style: preserve-3d) {
+  @include css3-prefix('transform-style', $style);
+}
+
+// Triple borders
+@mixin triple-borders($colorOne: #383836, $colorTwo: #577a9b, $colorThree: #5f605e, $radius: 0) {
+  border: 1px solid $colorOne;
+
+  @include border-radius($radius);
+  @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree);
+}
+
+// Animation
+@mixin animation($str) {
+  @include css3-prefix('animation', $str);
+}
+
+// Vertically align any element
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Box shadow
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+  } @else {
+    @include css3-prefix('box-shadow', $x $y $blur $color);
+  }
+}
+
+// Rounded image
+@mixin round-img {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+// Loaders
+@mixin image-loader($type) {
+  $loaderPath: '';
+
+  // Check for loader type
+  @if ($type == 'large') {
+    $loaderPath: $imagesPath + "spinner.gif";
+  } @else if ($type == 'small') {
+    $loaderPath: 'We need some small loader here';
+  }
+
+  // Check do we have a loader path
+  @if ($loaderPath != '') {
+    background: url($imagesPath + $loaderPath) no-repeat center;
+
+    > * {
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+%transitionTopBlue {
+  transform: perspective(1px) translateZ(0);
+  &:hover:before {
+    transform: translateY(0);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #2098D1;
+    height: 4px;
+    transform: translateY(-4px);
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+}
+
+%textOverflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+%addEventButton {
+  .add-events--button {
+    position: fixed;
+    right: 3em;
+    bottom: 3em;
+    z-index: 1;
+
+    button {
+      object-fit: contain;
+      background-color: #323c46 !important;
+      box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.15) !important;
+    }
+
+    @media screen and(max-width: 768px) {
+      right: 0;
+    }
+  }
+}
+
+%editEventButton {
+  .edit-events--button {
+    position: fixed;
+    right: 3em;
+    bottom: 3em;
+    z-index: 1;
+
+    button {
+      object-fit: contain;
+      background-color: rgb(34, 212, 134) !important;
+      box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.15) !important;
+    }
+
+    @media screen and(max-width: 768px) {
+      right: 0;
+    }
+  }
+}
