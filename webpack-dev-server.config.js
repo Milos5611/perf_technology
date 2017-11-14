@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const TransferWebpackPlugin = require("transfer-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 

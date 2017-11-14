@@ -196,5 +196,3 @@ yarn-error.log
 
 ### npm@5 ###
 package-lock.json
-
-src/__tests__/
